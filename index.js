@@ -22,5 +22,7 @@ const server = new ApolloServer({
 const app = express();
 server.start().then(() => {
     server.applyMiddleware({ app });
-    app.listen(4000, () => console.log('Server running on http://localhost:4000/graphql'));
+    app.listen(process.env.PORT || 4000, () => 
+        console.log(`Server running at http://localhost:${process.env.PORT || 4000}/graphql`)
+    );
 });
